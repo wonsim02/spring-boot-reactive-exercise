@@ -1,3 +1,5 @@
 package com.example.demo.temperature
 
-data class Temperature(val value: Double)
+import java.io.Serializable
+
+data class Temperature(val value: Double): Serializable
