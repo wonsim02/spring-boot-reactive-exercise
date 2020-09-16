@@ -3,14 +3,18 @@ package com.example.demo
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler
 import org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.scheduling.annotation.AsyncConfigurer
 import org.springframework.scheduling.annotation.EnableAsync
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor
 import java.util.concurrent.Executor
 
 @EnableAsync
+@ComponentScan(
+    basePackages = ["com.example.demo.temperature.streamv0"]
+)
 @SpringBootApplication
-class App: AsyncConfigurer {
+class AppV0: AsyncConfigurer {
     @Override
     override fun getAsyncExecutor(): Executor =
         ThreadPoolTaskExecutor().apply {

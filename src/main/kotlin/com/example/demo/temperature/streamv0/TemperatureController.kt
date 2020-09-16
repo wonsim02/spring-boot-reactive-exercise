@@ -1,5 +1,6 @@
-package com.example.demo.temperature
+package com.example.demo.temperature.streamv0
 
+import com.example.demo.temperature.Temperature
 import org.springframework.context.event.EventListener
 import org.springframework.http.MediaType
 import org.springframework.scheduling.annotation.Async

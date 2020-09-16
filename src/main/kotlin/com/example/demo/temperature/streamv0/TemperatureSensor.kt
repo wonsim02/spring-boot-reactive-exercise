@@ -1,5 +1,6 @@
-package com.example.demo.temperature
+package com.example.demo.temperature.streamv0
 
+import com.example.demo.temperature.Temperature
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Component
 import java.util.concurrent.Executors
