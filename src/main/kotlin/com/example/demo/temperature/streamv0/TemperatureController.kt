@@ -20,14 +20,12 @@ class TemperatureController {
         value = ["/temperature-stream"],
         method = [RequestMethod.GET]
     )
-    fun events(request: HttpServletRequest): SseEmitter {
-        val emitter = SseEmitter()
-        clients.add(emitter)
-
-        emitter.onTimeout { clients.remove(emitter) }
-        emitter.onCompletion { clients.remove(emitter) }
-        return emitter
-    }
+    fun events(request: HttpServletRequest): SseEmitter =
+        SseEmitter().apply {
+            clients.add(this)
+            this.onTimeout { clients.remove(this) }
+            this.onCompletion { clients.remove(this) }
+        }
 
     @Async
     @EventListener
